@@ -194,11 +194,11 @@
 			 <button id="authorize-button" style="display: none;">Authorize</button>
 			 <button id="signout-button" style="display: none;">Sign Out</button>-->
 			<div class="row col s10 m8 l8 offset-s1 offset-m2 offset-l2 z-depth-1 container">
-				<h4 align="center">Mediacom Test</h4>
+				<h4 align="center">Mediacom Comments</h4>
 				<div class="row"></div>
 				<div class="col l12 m12 s12">
 					<div class="col s12 m4 l3">
-						<p>Username</p>
+						<p>User Name</p>
 					</div>
 					<div class="col s12 m7 l9">
 					<input id ="email" ng-model="email" type="text" placeholder="Enter your name" required>			    
@@ -249,7 +249,7 @@
 			<!-- Modal Structure -->
 			  <div id="modal1" class="modal" style="z-index: 100;top:30%;overflow:hidden;">
 			    <div class="modal-content">
-			      <h5 align="center">Godkjenn deg selv ved å logge på Google-konto</h5>
+			      <h5 align="center">Godkjenn deg selv ved Ã¥ logge pÃ¥ Google-konto</h5>
 			    </div>
 			    <div class="modal-footer center">
 				<div class="row">
@@ -355,9 +355,9 @@
 		      function listClients() {
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-			  spreadsheetId: '1WSD_EHQ_yKrXBJbrcxReOHlKMz58LHdyQJHKrV-4UJM',
+			  spreadsheetId: '1ihVv6g-6_pwsymDfi93fN-144DKNkjzEljmg2AQVVDY',
 			//  tq:'select%20*%20limit%2010', //filter
-			  range: "Sheet1!B2:B600",
+			  range: "Sheet1!C2:C277",
 			}).then(function(response) {
 			  var range = response.result;
 			  if (range.values.length > 0) {
@@ -424,7 +424,7 @@
 	
 			      var params = {
 				// The ID of the spreadsheet to update.
-				spreadsheetId: '1WSD_EHQ_yKrXBJbrcxReOHlKMz58LHdyQJHKrV-4UJM',  // TODO: Update placeholder value.
+				spreadsheetId: '1Ej0oaEN0mU4diI6rIR5QLh-tGMoGSPp2I2gdpaA4jUw',  // TODO: Update placeholder value.
 				// The A1 notation of the values to update.
 				range: 'Sheet2!A2:E5',  // TODO: Update placeholder value.
 				// How the input data should be interpreted.
