@@ -357,7 +357,7 @@
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1ihVv6g-6_pwsymDfi93fN-144DKNkjzEljmg2AQVVDY',
 			//  tq:'select%20*%20limit%2010', //filter
-			  range: "Sheet1!C2:C277",
+			  range: "Sheet1!A2:A277",
 			}).then(function(response) {
 			  var range = response.result;
 			  if (range.values.length > 0) {
@@ -390,7 +390,7 @@
 			    gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1ihVv6g-6_pwsymDfi93fN-144DKNkjzEljmg2AQVVDY',
-			  range: "Sheet1!B2:D700",
+			  range: "Sheet1!A2:C277",
 			}).then(function(response) {
 			   productList=[];
 			   var range = response.result;
@@ -467,7 +467,7 @@
 				var params = {
 					// The ID of the spreadsheet to update.
 					spreadsheetId: '1Ej0oaEN0mU4diI6rIR5QLh-tGMoGSPp2I2gdpaA4jUw',  // TODO: Update placeholder value.
-					range:'Sheet2!A1:H100',  // TODO: Update placeholder value.
+					range:'Sheet1!A1:H100',  // TODO: Update placeholder value.
 					// How the input data should be interpreted.
 					valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
 				};
