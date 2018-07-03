@@ -367,8 +367,8 @@
 			  }
 			var uniqueValues = dupClients.filter( onlyUnique );
 			for(var i = 0; i < uniqueValues.length; i++){
-			    clientList.push(range.values[i][0]);
-			    options += '<option value="'+range.values[i]+'" />';
+			    clientList.push(uniqueValues[i]);
+			    options += '<option value="'+uniqueValues[i]+'" />';
 			  }
 			  document.getElementById('source').innerHTML = options;
 			  } else {
