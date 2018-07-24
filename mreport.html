@@ -212,7 +212,7 @@
 					<!--	<select id ="client" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
 							<option ng-repeat="client in clientList">{{client}}</option>
 						</select>-->
-						<input list="source" id="sourceName" name="browser" ng-model="campaign.scource" onchange="sourceSelected(this.value)" ng-change="sourceSelected(campaign.source)" placeholder="Select source">
+						<input list="source" id="sourceName" name="browser" ng-model="campaign.scource" onchange="sourceSelected(this.value)" ng-change="sourceSelected(campaign.source)" placeholder="Select Source">
 						<datalist id="source">
 						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
 						</datalist>						
@@ -227,13 +227,8 @@
 					<!--	<select id ="client1" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
 							<option ng-repeat="client in clientList">{{client}}</option>
 						</select>-->
-						<input list="source" id="sourceName1" name="browser" ng-model="campaign.scource" onchange="
-																	  
-																	  
-																	  
-																	  
-																	  Selected(this.value)" ng-change="sourceSelected(campaign.source)" placeholder="Select source">
-						<datalist id="source">
+						<input list="advertiser" id="advertiserName" name="browser" ng-model="campaign.advertiser" onchange="advertiserSelected(this.value)" ng-change="advertiserSelected(campaign.advertiser)" placeholder="Select Advertiser">
+						<datalist id="advertiser">
 						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
 						</datalist>						
 					</div>
@@ -411,7 +406,7 @@
 			    gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
-			  range: "Sheet1!A2:C277",
+			  range: "Sheet1!A2:D444",
 			}).then(function(response) {
 			   productList=[];
 			   var range = response.result;
@@ -440,6 +435,7 @@
 			      var timestamp=dt.toString().split("GMT")[0];
 			      var operator_name = document.getElementById('email').value;
 			      var source_name = document.getElementById('sourceName').value;
+    				var advertiser_name = document.getElementById('advertiserName').value;
 			      var campaign_name = document.getElementById('clientName').value;
 			      var comment = document.getElementById('name').value;
 	
@@ -458,7 +454,7 @@
 				var resource = {
 				  "majorDimension": "ROWS",
 				  "values": [
-					    [timestamp,operator_name, source_name, campaign_name,comment]
+					    [timestamp,operator_name, source_name, advertiser_name,campaign_name,comment]
 					  ],
 				}
 			     if(operator_name!="" && source_name!="" && campaign_name!="" && comment!=""){
