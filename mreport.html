@@ -249,7 +249,7 @@
 			<!-- Modal Structure -->
 			  <div id="modal1" class="modal" style="z-index: 100;top:30%;overflow:hidden;">
 			    <div class="modal-content">
-			      <h5 align="center">Godkjenn deg selv ved å logge på Google-konto</h5>
+			      <h5 align="center">Godkjenn deg selv ved Ã¥ logge pÃ¥ Google-konto</h5>
 			    </div>
 			    <div class="modal-footer center">
 				<div class="row">
@@ -355,9 +355,9 @@
 		      function listClients() {
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-			  spreadsheetId: '1ihVv6g-6_pwsymDfi93fN-144DKNkjzEljmg2AQVVDY',
+			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
 			//  tq:'select%20*%20limit%2010', //filter
-			  range: "Ark 1!A2:A277",
+			  range: "Ark 1!A2:A444",
 			}).then(function(response) {
 			  var range = response.result;
 			  if (range.values.length > 0) {
@@ -389,7 +389,7 @@
 			    if(isInArray(clientList, client)){
 			    gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-			  spreadsheetId: '1ihVv6g-6_pwsymDfi93fN-144DKNkjzEljmg2AQVVDY',
+			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
 			  range: "Ark 1!A2:C277",
 			}).then(function(response) {
 			   productList=[];
@@ -424,7 +424,7 @@
 	
 			      var params = {
 				// The ID of the spreadsheet to update.
-				spreadsheetId: '1Ej0oaEN0mU4diI6rIR5QLh-tGMoGSPp2I2gdpaA4jUw',  // TODO: Update placeholder value.
+				spreadsheetId: '18267os5OVOeC_H5wRCksgQ2eojr_sc4NPs9tK819xcE',  // TODO: Update placeholder value.
 				// The A1 notation of the values to update.
 				range: 'Ark 1!A2:E5',  // TODO: Update placeholder value.
 				// How the input data should be interpreted.
