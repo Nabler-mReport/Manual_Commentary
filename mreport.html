@@ -368,7 +368,7 @@
 			var regionList=[];
 			var dupClients=[];
 			
-		      function listClients() {
+		            function listClients() {
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
@@ -379,9 +379,9 @@
 			  if (range.values.length > 0) {
 			   var options = '';   
 			  for(var i = 0; i < range.values.length; i++){
-			    dupClient.push(range.values[i][0]);
+			    dupClients.push(range.values[i][0]);
 			  }
-			var uniqueValues = dupClient.filter( onlyUnique );
+			var uniqueValues = dupClients.filter( onlyUnique );
 			for(var i = 0; i < uniqueValues.length; i++){
 			    clientList.push(uniqueValues[i]);
 			    options += '<option value="'+uniqueValues[i]+'" />';
@@ -393,11 +393,12 @@
 			}, function(response) {
 			  appendPre('Error: ' + response.result.error.message);
 			});
-		      
+		      }
 			
 			function onlyUnique(value, index, self) { 
 			    return self.indexOf(value) === index;
 			}
+
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
