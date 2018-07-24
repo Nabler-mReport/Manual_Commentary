@@ -379,11 +379,11 @@
 			  if (range.values.length > 0) {
 			   var options = '';   
 			  for(var i = 0; i < range.values.length; i++){
-			    dupClients.push(range.values[i][0]);
+			    dupAdvertiser.push(range.values[i][0]);
 			  }
-			var uniqueValues = dupClients.filter( onlyUnique );
+			var uniqueValues = dupAdvertiser.filter( onlyUnique );
 			for(var i = 0; i < uniqueValues.length; i++){
-			    clientList.push(uniqueValues[i]);
+			    advertiserList.push(uniqueValues[i]);
 			    options += '<option value="'+uniqueValues[i]+'" />';
 			  }
 			  document.getElementById('source').innerHTML = options;
