@@ -368,7 +368,7 @@
 			var regionList=[];
 			var dupClients=[];
 			
-		            function listClients() {
+		                  function listClients() {
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
@@ -424,10 +424,6 @@
 			  appendPre('Error: ' + response.result.error.message);
 			});
 		      }
-			
-			function onlyUnique(value, index, self) { 
-			    return self.indexOf(value) === index;
-			}
 			
 			var clientRange=[];			
 			function sourceSelected(client){
