@@ -398,38 +398,7 @@
 			function onlyUnique(value, index, self) { 
 			    return self.indexOf(value) === index;
 			}
-			
-			gapi.client.sheets.spreadsheets.values.get({
-			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
-			//  tq:'select%20*%20limit%2010', //filter
-			  range: "Sheet1!D2:D444",
-			}).then(function(response) {
-			  var range = response.result;
-			  if (range.values.length > 0) {
-			   var options = '';   
-			  for(var i = 0; i < range.values.length; i++){
-			    dupClients.push(range.values[i][0]);
-			  }
-			var uniqueValues = dupClients.filter( onlyUnique );
-			for(var i = 0; i < uniqueValues.length; i++){
-			    clientList.push(uniqueValues[i]);
-			    options += '<option value="'+uniqueValues[i]+'" />';
-			  }
-			  document.getElementById('advertiser').innerHTML = options;
-			  } else {
-			    //appendPre('No data found.');
-			  }
-			}, function(response) {
-			  appendPre('Error: ' + response.result.error.message);
-			});
-		      }
-			
-			function onlyUnique(value, index, self) { 
-			    return self.indexOf(value) === index;
-			}
-
-			
+						
 			var clientRange=[];			
 			function sourceSelected(client){
 				console.log(client);
