@@ -393,10 +393,12 @@
 			}, function(response) {
 			  appendPre('Error: ' + response.result.error.message);
 			});
+		      }
 			
 			function onlyUnique(value, index, self) { 
 			    return self.indexOf(value) === index;
 			}
+
 						
 			var clientRange=[];			
 			function sourceSelected(client){
