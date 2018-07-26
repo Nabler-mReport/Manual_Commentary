@@ -399,7 +399,32 @@
 			    return self.indexOf(value) === index;
 			}
 
-						
+			var clientRange=[];			
+			function sourceSelected(advertiser){
+				console.log(advertiser);
+			    if(isInArray(clientList, advertiser)){
+			    gapi.client.sheets.spreadsheets.values.get({
+			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
+			  range: "Sheet1!A2:D444",
+			}).then(function(response) {
+			   productList=[];
+			   var range = response.result;
+			   if (range.values.length > 0) {
+				var optionsProd= '';
+			  for(var i = 0; i < range.values.length; i++){
+			    if(range.values[i][0]==advertiser){
+				productList.push(range.values[i][2]);
+			    	optionsProd += '<option value="'+range.values[i][2]+'" />';
+			    }
+			  }
+			  }
+			document.getElementById('advertiser').innerHTML = optionsProd;
+			}, function(response) {
+			  appendPre('Error: ' + response.result.error.message);
+			});
+			    }	
+			}			
 		
 			
 			function isInArray(list, val) {
