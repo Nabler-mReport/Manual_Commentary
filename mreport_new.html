@@ -458,7 +458,7 @@
 					    [timestamp,operator_name, source_name, advertiser_name,campaign_name,comment]
 					  ],
 				}
-			     if(operator_name!="" && source_name!="" && campaign_name!="" && comment!=""){
+			     if(operator_name!="" && source_name!="" && advertiser_name!="" && campaign_name!="" && comment!=""){
 			      var request = gapi.client.sheets.spreadsheets.values.append(params, resource);
       				request.then(function(response) {
 				// TODO: Change code below to process the `response` object:
