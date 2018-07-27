@@ -374,6 +374,7 @@
 			var overList=[];
 			var regionList=[];
 			var dupClients=[];
+			var advertiserList =[];
 			
 		        function listClients() {
 			gapi.client.sheets.spreadsheets.values.get({
@@ -415,6 +416,20 @@
 			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
 			  range: "Sheet1!A2:D444",
 			}).then(function(response) {
+			var range1 = response.result;
+			var dupClients1 = [];
+			  if (range1.values.length > 0) {
+			   var options1 = '';   
+			  for(var i = 0; i < range1.values.length; i++){
+			    dupClients1.push(range1.values[i][0]);
+			  }
+			var uniqueValues1 = dupClients1.filter( onlyUnique );
+			for(var i = 0; i < uniqueValues.length; i++){
+			    advertiserList.push(uniqueValues[i]);
+			    options1 += '<option value="'+uniqueValues[i]+'" />';
+			  }    
+				    
+				    
 			   productList=[];
 			   var range = response.result;
 			   if (range.values.length > 0) {
