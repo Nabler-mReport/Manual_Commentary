@@ -206,33 +206,20 @@
 				</div>	
 				<div class="col l12 m12 s12">
 					<div class="col s12 m4 l3">
-						<p>Source</p>
+						<p>Advertiser</p>
 					</div>
 					<div class="col s12 m7 l9">
 					<!--	<select id ="client" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
 							<option ng-repeat="client in clientList">{{client}}</option>
 						</select>-->
-						<input list="source" id="sourceName" name="browser" ng-model="campaign.scource" onchange="sourceSelected(this.value)" ng-change="sourceSelected(campaign.source)" placeholder="Select Source">
+						<input list="source" id="sourceName" name="browser" ng-model="campaign.scource" onchange="sourceSelected(this.value)" ng-change="sourceSelected(campaign.source)" placeholder="Select Advertiser
 						<datalist id="source">
 						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
 						</datalist>						
 					</div>
 				</div>	
 				
-				<div class="col l12 m12 s12">
-					<div class="col s12 m4 l3">
-						<p>Advertiser</p>
-					</div>
-					<div class="col s12 m7 l9">
-					<!--	<select id ="client1" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
-							<option ng-repeat="client in clientList">{{client}}</option>
-						</select>-->
-						<input list="advertiser" id="advertiserName" name="browser" ng-model="campaign.advertiser" onchange="advertiserSelected(this.value)" ng-change="advertiserSelected(campaign.advertiser)" placeholder="Select Advertiser">
-						<datalist id="advertiser">
-						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
-						</datalist>						
-					</div>
-				</div>	
+				
 				
 				<div class="col l12 m12 s12">
 					<div class="col s12 m4 l3">
@@ -373,7 +360,7 @@
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
 			//  tq:'select%20*%20limit%2010', //filter
-			  range: "Sheet1!A2:A444",
+			  range: "Sheet1!D2:D444",
 			}).then(function(response) {
 			  var range = response.result;
 			  if (range.values.length > 0) {
