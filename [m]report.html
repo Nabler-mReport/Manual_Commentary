@@ -401,13 +401,13 @@
 			   if (range.values.length > 0) {
 				var optionsProd= '';
 			  for(var i = 0; i < range.values.length; i++){
-			    if(range.values[i][0]==client){
+			    if(range.values[i][3]==client){
 				productList.push(range.values[i][2]);
 			    	optionsProd += '<option value="'+range.values[i][2]+'" />';
 			    }
 			  }
 			  }
-			document.getElementById('client').innerHTML = optionsProd;
+			document.getElementById('advertiser').innerHTML = optionsProd;
 			}, function(response) {
 			  appendPre('Error: ' + response.result.error.message);
 			});
