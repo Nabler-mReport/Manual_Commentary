@@ -415,9 +415,13 @@
 			   if (range.values.length > 0) {
 				var optionsProd= '';
 			for(var i = 0; i < range.values.length; i++){
+			    dupadvert.push(range.values[i]);
+			  }
+			var uniqueValues = dupadvert.filter( onlyUnique );
+			for(var i = 0; i < uniqueValues.length; i++){
 			    if(range.values[i][0]==client){
-				productList.push(range.values[i][3]);
-			    	optionsProd += '<option value="'+range.values[i][3]+'" />';
+				productList.push(uniqueValues[i][3]);
+			    	optionsProd += '<option value="'+uniqueValues[i][3]+'" />';
 			    }
 			  }
 			  }
@@ -445,14 +449,10 @@
 			   var range = response.result;
 			   if (range.values.length > 0) {
 				var optionsProd= '';
-			for(var i = 0; i < range.values.length; i++){
-			    dupadvert.push(range.values[i]);
-			  }
-			var uniqueValues = dupadvert.filter( onlyUnique );
-			  for(var i = 0; i < uniqueValues.length; i++){
+			  for(var i = 0; i < range.values.length; i++){
 			    if(range.values[i][3]==advert){
-				productList.push(uniqueValues[i][2]);
-			    	optionsProd += '<option value="'+uniqueValues[i][2]+'" />';
+				productList.push(range.values[i][2]);
+			    	optionsProd += '<option value="'+range.values[i][2]+'" />';
 			    }
 			  }
 			  }
