@@ -367,6 +367,7 @@
 			var overList=[];
 			var regionList=[];
 			var dupClients=[];
+			var dupSource = [];
 			
 		        function listClients() {
 			gapi.client.sheets.spreadsheets.values.get({
@@ -413,7 +414,11 @@
 			   var range = response.result;
 			   if (range.values.length > 0) {
 				var optionsProd= '';
-			  for(var i = 0; i < range.values.length; i++){
+			for(var i = 0; i < range.values.length; i++){
+			    dupSource.push(range.values[i][0]);
+			  }
+			var uniqueValues = dupSource.filter( onlyUnique );
+			  for(var i = 0; i < uniqueValues.length; i++){
 			    if(range.values[i][0]==client){
 				productList.push(range.values[i][3]);
 			    	optionsProd += '<option value="'+range.values[i][3]+'" />';
