@@ -415,15 +415,15 @@
 			   if (range.values.length > 0) {
 				var optionsProd= '';
 			for(var i = 0; i < range.values.length; i++){
-			    dupAdvert.push(range.values[i]);
-			  }
-			var uniqueValues = dupAdvert.filter( onlyUnique );
-			for(var i = 0; i < uniqueValues.length; i++){
 			    if(range.values[i][0]==client){
-				productList.push(uniqueValues[i][3]);
-			    	optionsProd += '<option value="'+uniqueValues[i][3]+'" />';
+				dupAdvert.push(range.values[i][3]);
 			    }
 			  }
+			var uniqueValues = dupAdvert.filter( onlyUnique );
+			for(j=0;j<uniqueValues.length;j++){
+				   productList.push(uniqueValues[i]);
+			    	optionsProd += '<option value="'+uniqueValues[i]+'" />';
+			}
 			  }
 			document.getElementById('advertiser').innerHTML = optionsProd;
 			}, function(response) {
