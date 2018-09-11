@@ -372,9 +372,9 @@
 		        function listClients() {
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
+			  spreadsheetId: '1fDfenx_8FeMlE1xDDM_m5d67sbMhZnNwHxfX0ghUOic',
 			//  tq:'select%20*%20limit%2010', //filter
-			  range: "Sheet1!A2:A444",
+			  range: "Sheet2!A2:A15000",
 			}).then(function(response) {
 			  var range = response.result;
 			  if (range.values.length > 0) {
@@ -399,7 +399,6 @@
 			function onlyUnique(value, index, self) { 
 			    return self.indexOf(value) === index;
 			}
-
 						
 			var clientRange=[];			
 			function sourceSelected(client){
@@ -407,8 +406,8 @@
 			    if(isInArray(clientList, client)){
 			    gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
-			  range: "Sheet1!A2:D444",
+			  spreadsheetId: '1fDfenx_8FeMlE1xDDM_m5d67sbMhZnNwHxfX0ghUOic',
+			  range: "Sheet2!A2:D15000",
 			}).then(function(response) {
 			   productList=[];
 			   var range = response.result;
@@ -442,8 +441,8 @@
 			    if(isInArray(productList, advert)){
 			    gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
-			  range: "Sheet1!A2:D444",
+			  spreadsheetId: '1fDfenx_8FeMlE1xDDM_m5d67sbMhZnNwHxfX0ghUOic',
+			  range: "Sheet2!A2:D15000",
 			}).then(function(response) {
 			   campaignList=[];
 			   var range = response.result;
@@ -474,9 +473,9 @@
 	
 			      var params = {
 				// The ID of the spreadsheet to update.
-				spreadsheetId: '18267os5OVOeC_H5wRCksgQ2eojr_sc4NPs9tK819xcE',  // TODO: Update placeholder value.
+				spreadsheetId: '1fDfenx_8FeMlE1xDDM_m5d67sbMhZnNwHxfX0ghUOic',  // TODO: Update placeholder value.
 				// The A1 notation of the values to update.
-				range: 'Sheet1!A2:F5',  // TODO: Update placeholder value.
+				range: 'Sheet1!A2:F15000',  // TODO: Update placeholder value.
 				// How the input data should be interpreted.
 				valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
 			      };
@@ -516,8 +515,8 @@
 			function saveNew(num,val){
 				var params = {
 					// The ID of the spreadsheet to update.
-					spreadsheetId: '18267os5OVOeC_H5wRCksgQ2eojr_sc4NPs9tK819xcE',  // TODO: Update placeholder value.
-					range:'Sheet1!A1:H100',  // TODO: Update placeholder value.
+					spreadsheetId: '1fDfenx_8FeMlE1xDDM_m5d67sbMhZnNwHxfX0ghUOic',  // TODO: Update placeholder value.
+					range:'Sheet1!A1:H15000',  // TODO: Update placeholder value.
 					// How the input data should be interpreted.
 					valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
 				};
