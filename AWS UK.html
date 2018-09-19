@@ -369,7 +369,7 @@
 			var dupClients=[];
 			var dupAdvert = [];
 			
-		        function listClients() {
+		      /*  function listClients() {
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1YSgPX_RXpX1dk1XmHwaoedDshzkf6PjUbrIUfGiymxY',
@@ -460,15 +460,15 @@
 			  appendPre('Error: ' + response.result.error.message);
 			});
 			    }	
-			}
+			}   */
 			
 			function makeApiCall() {
 			      var dt = new Date();
 			      var timestamp=dt.toString().split("GMT")[0];
 			      var operator_name = document.getElementById('email').value;
-			      var source_name = document.getElementById('sourceName').value;
-    				var advertiser_name = document.getElementById('advertiserName').value;
-			      var campaign_name = document.getElementById('clientName').value;
+			      var source_name = 'Source';
+    				var advertiser_name = 'AMEX';
+			      var campaign_name = 'Amex Brand September VOD';
 			      var comment = document.getElementById('name').value;
 	
 			      var params = {
