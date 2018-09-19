@@ -212,10 +212,10 @@
 					<!--	<select id ="client" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
 							<option ng-repeat="client in clientList">{{client}}</option>
 						</select>-->
-						<input list="source" id="sourceName" name="browser" ng-model="campaign.scource" onchange="sourceSelected(this.value)" ng-change="sourceSelected(campaign.source)" placeholder="Select Source">
-						<datalist id="source">
+					<!--	<input list="source" id="sourceName" name="browser" ng-model="campaign.scource" onchange="sourceSelected(this.value)" ng-change="sourceSelected(campaign.source)" placeholder="Select Source">
+						<datalist id="source"> -->
 						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
-						</datalist>						
+					<!--	</datalist>						
 					</div>
 				</div>	
 				
@@ -227,10 +227,10 @@
 					<!--	<select id ="client1" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
 							<option ng-repeat="client in clientList">{{client}}</option>
 						</select>-->
-						<input list="advertiser" id="advertiserName" name="browser" ng-model="campaign.advertiser" onchange="advertiserSelected(this.value)" ng-change="advertiserSelected(campaign.advertiser)" placeholder="Select Advertiser">
-						<datalist id="advertiser">
+					<!--	<input list="advertiser" id="advertiserName" name="browser" ng-model="campaign.advertiser" onchange="advertiserSelected(this.value)" ng-change="advertiserSelected(campaign.advertiser)" placeholder="Select Advertiser">
+						<datalist id="advertiser"> -->
 						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
-						</datalist>						
+					<!--	</datalist>						
 					</div>
 				</div>	
 				
@@ -238,13 +238,13 @@
 					<div class="col s12 m4 l3">
 						<p>Campaign</p>
 					</div>
-					<div class="col s12 m7 l9">
+					<div class="col s12 m7 l9"> -->
 					<!--	<select id ="client" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
 							<option ng-repeat="client in clientList">{{client}}</option>
-						</select>-->
+						</select>
 						<input list="client" id="clientName" name="browser" ng-model="campaign.client" ng-change="clientSelected(campaign.client)" placeholder="Select Campaign">
 						<datalist id="client">
-						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
+						<option ng-repeat="client in clientList">{{client}}</option>
 						</datalist>						
 					</div>
 				</div>	-->					
@@ -489,7 +489,7 @@
 					    [timestamp,operator_name, source_name, advertiser_name,campaign_name,comment]
 					  ],
 				}
-			     if(operator_name!="" && source_name!="" && campaign_name!="" && comment!=""){
+			     if(operator_name!="" && comment!=""){
 			      var request = gapi.client.sheets.spreadsheets.values.append(params, resource);
       				request.then(function(response) {
 				// TODO: Change code below to process the `response` object:
