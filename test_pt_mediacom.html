@@ -439,6 +439,7 @@
 			var clientRange=[];			
 			function advertiserSelected(advert){
 				console.log(advertiser,source);
+				console.log(advert);
 				console.log(productList);
 			    if(isInArray(productList, advert)){
 			    gapi.client.sheets.spreadsheets.values.get({
@@ -450,6 +451,7 @@
 			   var range = response.result;
 			   if (range.values.length > 0) {
 				var optionsProd= '';
+				 console.log(range.values);				
 			  for(var i = 0; i < range.values.length; i++){
 			    if(range.values[i][3]==advert){
 				productList.push(range.values[i][2]);
