@@ -438,7 +438,7 @@
 			var clientRange=[];			
 			function advertiserSelected(advert){
 				console.log(advertiser,source);
-			    if(isInArray(productList, advert)){
+			    if(isInArray(productList, source, advert)){
 			    gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1HelByCaRSt-c3JPFQoJ0bdYYVP2-AIE0Jd1xx96ryL4',
