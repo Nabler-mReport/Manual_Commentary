@@ -452,10 +452,11 @@
 			   var range = response.result;
 			   if (range.values.length > 0) {
 				var optionsProd= '';
-				 console.log(range.values);				
+				 console.log(range.values);
+				   console.log(document.getElementById("sourceName").value);
 			  for(var i = 0; i < range.values.length; i++){
 			    if(range.values[i][3]==advert){
-				    if(range.values[i][0]==client){
+				    if(range.values[i][0]==document.getElementById("sourceName").value){					    
 				productList.push(range.values[i][2]);
 			    	optionsProd += '<option value="'+range.values[i][2]+'" />';
 			    }
