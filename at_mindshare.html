@@ -450,11 +450,13 @@
 				var optionsProd= '';
 			  for(var i = 0; i < range.values.length; i++){
 			    if(range.values[i][3]==advert){
+			      if (range.values[i][0] == document.getElementById("sourceName").value) {
 				productList.push(range.values[i][2]);
 			    	optionsProd += '<option value="'+range.values[i][2]+'" />';
 			    }
 			  }
 			  }
+			   }	   
 			document.getElementById('client').innerHTML = optionsProd;
 			}, function(response) {
 			  appendPre('Error: ' + response.result.error.message);
