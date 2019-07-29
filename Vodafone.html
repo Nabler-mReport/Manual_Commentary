@@ -519,8 +519,7 @@
 			      var operator_name = document.getElementById('email').value;
 			      var source_name = document.getElementById('sourceName').value;
     				var campaign_name = document.getElementById('clientName').value;
-				var week = document.getElementById('week').value;
-			      var comment = document.getElementById('name').value;
+				var comment = document.getElementById('name').value;
 	
 			      var params = {
 				// The ID of the spreadsheet to update.
@@ -540,7 +539,7 @@
 					    [timestamp,operator_name, source_name,week, campaign_name,comment]
 					  ],
 				}
-			     if(operator_name!="" && source_name!="" && week!="" && campaign_name!="" && comment!=""){
+			     if(operator_name!="" && source_name!=""&& campaign_name!="" && comment!=""){
 			      var request = gapi.client.sheets.spreadsheets.values.append(params, resource);
       				request.then(function(response) {
 				// TODO: Change code below to process the `response` object:
