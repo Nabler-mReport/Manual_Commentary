@@ -372,6 +372,8 @@
 			var uniqueValues = dupClients.filter( onlyUnique );
 			for(var i = 0; i < uniqueValues.length; i++){
 			    clientList.push(uniqueValues[i]);
+				
+				console.log(uniqueValues[i]);
 			    options += '<option value="'+uniqueValues[i]+'" />';
 			  }
 			  document.getElementById('source').innerHTML = options;
