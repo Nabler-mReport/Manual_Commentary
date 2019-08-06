@@ -258,6 +258,8 @@
 			
 			<!-- Modal Structure -->
 			  
+			<div id="cover">
+  		</div>
 		<!--script--->
   		<script>
 // Client ID and API key from the Developer Console
@@ -415,98 +417,6 @@
 			
 			
 			
-		     /*   function listClients() {
-			gapi.client.sheets.spreadsheets.values.get({
-			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-			  spreadsheetId: '1gKeWwmMh0KHn__uxlmHXM_yTps1FWARARjiEByhxefA',
-			//  tq:'select%20*%20limit%2010', //filter
-			  range: "Sheet2!A2:A15000",
-			}).then(function(response) {
-			  var range = response.result;
-			  if (range.values.length > 0) {
-			   var options = '';   
-			  for(var i = 0; i < range.values.length; i++){
-			    dupClients.push(range.values[i][0]);
-			  }
-			var uniqueValues = dupClients.filter( onlyUnique );
-			for(var i = 0; i < uniqueValues.length; i++){
-			    clientList.push(uniqueValues[i]);
-			    options += '<option value="'+uniqueValues[i]+'" />';
-			  }
-			  document.getElementById('source').innerHTML = options;
-			  } else {
-			    //appendPre('No data found.');
-			  }
-			}, function(response) {
-			  appendPre('Error: ' + response.result.error.message);
-			});
-		      }
-			
-			function onlyUnique(value, index, self) { 
-			    return self.indexOf(value) === index;
-			}
-						
-			var clientRange=[];			
-			function sourceSelected(client){
-				console.log(client);
-			    if(isInArray(clientList, client)){
-			    gapi.client.sheets.spreadsheets.values.get({
-			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-			  spreadsheetId: '1gKeWwmMh0KHn__uxlmHXM_yTps1FWARARjiEByhxefA',
-			  range: "Sheet2!A2:D15000",
-			}).then(function(response) {
-			   productList=[];
-			   var range = response.result;
-			   if (range.values.length > 0) {
-				var optionsProd= '';
-			for(var i = 0; i < range.values.length; i++){
-			    if(range.values[i][0]==client){
-				dupAdvert.push(range.values[i][3]);
-			    }
-			  }
-			var uniqueValues = dupAdvert.filter( onlyUnique );
-			for(j=0;j<uniqueValues.length;j++){
-				   productList.push(uniqueValues[j]);
-			    	optionsProd += '<option value="'+uniqueValues[j]+'" />';
-			}
-			  }
-			document.getElementById('advertiser').innerHTML = optionsProd;
-			}, function(response) {
-			  appendPre('Error: ' + response.result.error.message);
-			});
-			    }	
-			}
-			
-			function isInArray(list, val) {
-				return list.includes(val); 
-			}
-			
-			var clientRange=[];			
-			function advertiserSelected(advert){
-				console.log(advertiser);
-			    if(isInArray(productList, advert)){
-			    gapi.client.sheets.spreadsheets.values.get({
-			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-			  spreadsheetId: '1gKeWwmMh0KHn__uxlmHXM_yTps1FWARARjiEByhxefA',
-			  range: "Sheet2!A2:D15000",
-			}).then(function(response) {
-			   campaignList=[];
-			   var range = response.result;
-			   if (range.values.length > 0) {
-				var optionsProd= '';
-			  for(var i = 0; i < range.values.length; i++){
-			    if(range.values[i][3]==advert){
-				productList.push(range.values[i][2]);
-			    	optionsProd += '<option value="'+range.values[i][2]+'" />';
-			    }
-			  }
-			  }
-			document.getElementById('client').innerHTML = optionsProd;
-			}, function(response) {
-			  appendPre('Error: ' + response.result.error.message);
-			});
-			    }	
-			} */
 			
 			function makeApiCall() {
 			      var dt = new Date();
@@ -591,3 +501,4 @@
 		    </script>
 	</body>
 </html>
+
