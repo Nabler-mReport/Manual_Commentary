@@ -272,7 +272,7 @@
             </div>
         </div>
 
-        <!-- Modal Structure -->
+   <!--    
         <div id="modal1" class="modal" style="z-index: 100;top:30%;overflow:hidden;">
             <div class="modal-content">
                 <h5 align="center">Please Sign in to your Google account to enter the comments</h5>
@@ -280,12 +280,12 @@
             <div class="modal-footer center">
                 <div class="row">
                     <button class="btn waves-effect center waves-light blue" id="authorize-button1" style="display: block; margin-left:  auto;  margin-right: auto; float:none;">Authorise</button>
-                    <!--	<button class="btn waves-effect center waves-light blue" id="signout-button" style="display: none; margin-left:  auto;  margin-right: auto; float:none;">Signout</button>-->
+                    	<button class="btn waves-effect center waves-light blue" id="signout-button" style="display: none; margin-left:  auto;  margin-right: auto; float:none;">Signout</button>
                 </div>
             </div>
         </div>
         <div id="cover">
-        </div>
+        </div>-->
         <!--script--->
         <script>
             // Client ID and API key from the Developer Console
@@ -327,35 +327,8 @@
             /**
              *  Called when the signed in status changes, to update the UI
              *  appropriately. After a sign-in, the API is called.
-             */
-            function updateSigninStatus(isSignedIn) {
-                if (isSignedIn) {
-                    //signoutButton.style.display = 'block';
-                    authorizeButton.style.display = 'none';
-                    document.getElementById("modal1").style.display = 'none';
-                    document.getElementById("cover").style.display = 'none';
-
-                    listClients();
-                    //makeApiCall();
-                } else {
-                    authorizeButton.style.display = 'block';
-                    document.getElementById("modal1").style.display = 'block';
-                    document.getElementById("cover").style.display = 'block';
-                    // signoutButton.style.display = 'none';
-                }
-            }
-            /**
-             *  Sign in the user upon button click.
-             */
-            function handleAuthClick(event) {
-                gapi.auth2.getAuthInstance().signIn();
-            }
-            /**
-             *  Sign out the user upon button click.
-             */
-            function handleSignoutClick(event) {
-                gapi.auth2.getAuthInstance().signOut();
-            }
+      
+            /*
 
             /**
              * Append a pre element to the body containing the given message
@@ -363,9 +336,7 @@
              *
              * @param {string} message Text to be placed in pre element.
              */
-            function appendPre(message) {
-                var pre = document.getElementById('content');
-                var textContent = document.createTextNode(message + '\n');
+           
                 //	pre.appendChild(textContent);
             }
             /**
