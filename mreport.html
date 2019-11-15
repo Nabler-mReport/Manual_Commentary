@@ -372,7 +372,7 @@
 		        function listClients() {
 			gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
+			  spreadsheetId: '1v5Qc6h63kPE1uoEV0qbpArizNjPH2SeeMSldnZ-EgNM',
 			//  tq:'select%20*%20limit%2010', //filter
 			  range: "Sheet1!A2:A444",
 			}).then(function(response) {
@@ -407,7 +407,7 @@
 			    if(isInArray(clientList, client)){
 			    gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
+			  spreadsheetId: '1v5Qc6h63kPE1uoEV0qbpArizNjPH2SeeMSldnZ-EgNM',
 			  range: "Sheet1!A2:D444",
 			}).then(function(response) {
 			   productList=[];
@@ -442,7 +442,7 @@
 			    if(isInArray(productList, advert)){
 			    gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-			  spreadsheetId: '1uljbOW2ZnAPkun9epfp_uv-w4CDF_gS28I68s24xdOg',
+			  spreadsheetId: '1v5Qc6h63kPE1uoEV0qbpArizNjPH2SeeMSldnZ-EgNM',
 			  range: "Sheet1!A2:D444",
 			}).then(function(response) {
 			   campaignList=[];
@@ -474,7 +474,7 @@
 	
 			      var params = {
 				// The ID of the spreadsheet to update.
-				spreadsheetId: '18267os5OVOeC_H5wRCksgQ2eojr_sc4NPs9tK819xcE',  // TODO: Update placeholder value.
+				spreadsheetId: '1v5Qc6h63kPE1uoEV0qbpArizNjPH2SeeMSldnZ-EgNM',  // TODO: Update placeholder value.
 				// The A1 notation of the values to update.
 				range: 'Sheet1!A2:F5',  // TODO: Update placeholder value.
 				// How the input data should be interpreted.
@@ -516,7 +516,7 @@
 			function saveNew(num,val){
 				var params = {
 					// The ID of the spreadsheet to update.
-					spreadsheetId: '18267os5OVOeC_H5wRCksgQ2eojr_sc4NPs9tK819xcE',  // TODO: Update placeholder value.
+					spreadsheetId: '1v5Qc6h63kPE1uoEV0qbpArizNjPH2SeeMSldnZ-EgNM',  // TODO: Update placeholder value.
 					range:'Sheet1!A1:H100',  // TODO: Update placeholder value.
 					// How the input data should be interpreted.
 					valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
