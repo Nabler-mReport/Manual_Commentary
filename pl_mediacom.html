@@ -374,7 +374,7 @@
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1v5Qc6h63kPE1uoEV0qbpArizNjPH2SeeMSldnZ-EgNM',
 			//  tq:'select%20*%20limit%2010', //filter
-			  range: "Sheet1!A2:A444",
+			  range: "Sheet2!A2:A15000",
 			}).then(function(response) {
 			  var range = response.result;
 			  if (range.values.length > 0) {
@@ -407,7 +407,7 @@
 			    gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1v5Qc6h63kPE1uoEV0qbpArizNjPH2SeeMSldnZ-EgNM',
-			  range: "Sheet1!A2:D444",
+			  range: "Sheet2!A2:D15000",
 			}).then(function(response) {
 			   productList=[];
 			   var range = response.result;
@@ -442,7 +442,7 @@
 			    gapi.client.sheets.spreadsheets.values.get({
 			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
 			  spreadsheetId: '1v5Qc6h63kPE1uoEV0qbpArizNjPH2SeeMSldnZ-EgNM',
-			  range: "Sheet1!A2:D444",
+			  range: "Sheet2!A2:D15000",
 			}).then(function(response) {
 			   campaignList=[];
 			   var range = response.result;
@@ -450,11 +450,13 @@
 				var optionsProd= '';
 			  for(var i = 0; i < range.values.length; i++){
 			    if(range.values[i][3]==advert){
+			       if (range.values[i][0] == document.getElementById("sourceName").value) {
 				productList.push(range.values[i][2]);
 			    	optionsProd += '<option value="'+range.values[i][2]+'" />';
 			    }
 			  }
 			  }
+			   }
 			document.getElementById('client').innerHTML = optionsProd;
 			}, function(response) {
 			  appendPre('Error: ' + response.result.error.message);
@@ -475,7 +477,7 @@
 				// The ID of the spreadsheet to update.
 				spreadsheetId: '1v5Qc6h63kPE1uoEV0qbpArizNjPH2SeeMSldnZ-EgNM',  // TODO: Update placeholder value.
 				// The A1 notation of the values to update.
-				range: 'Sheet1!A2:F5',  // TODO: Update placeholder value.
+				range: 'Sheet1!A2:F15000',  // TODO: Update placeholder value.
 				// How the input data should be interpreted.
 				valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
 			      };
@@ -516,7 +518,7 @@
 				var params = {
 					// The ID of the spreadsheet to update.
 					spreadsheetId: '1v5Qc6h63kPE1uoEV0qbpArizNjPH2SeeMSldnZ-EgNM',  // TODO: Update placeholder value.
-					range:'Sheet1!A1:H100',  // TODO: Update placeholder value.
+					range:'Sheet1!A1:H15000',  // TODO: Update placeholder value.
 					// How the input data should be interpreted.
 					valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
 				};
