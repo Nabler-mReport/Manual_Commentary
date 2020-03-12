@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="web-app">
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta http-equiv="pragma" content="no-cache" />
+	    <link rel="shortcut icon" href="https://groupm-assets.s3.us-east-2.amazonaws.com/favicons.png" type="image/png">
+	    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	    
+	    <title>[m]report</title>
+	    <base href="/">
+   		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+	    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Gudea">
+	    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	 <!--  	<link href="/css/materialize-style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link rel="stylesheet" type="text/css" href="/css/sweet-alert/sweetalert.css"> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>	
+	</head>
+	<body>
+		
+		<style>
+			@media only screen and (min-width: 1024px){
+				.logo {
+					height: auto !important;
+					margin-left: 0 !important; 
+					width: 11.25rem !important;
+				}
+				
+				#copy{
+					display:block !important;
+				}
+				#copy_mobile{
+					display:none !important;
+				}
+			}
+			html{
+				font-family:"franklin-gothic-urw",sans-serif !important;
+			}
+			select{
+				display:block;
+				border: 1px solid lightgrey !important;
+				    margin: 0 0 15px 0 !important;
+			}
+			.logo{
+				/*height:60px;
+				padding-top:15px;*/
+				display: block;
+				height: 2.125rem;
+				position: absolute;
+				left: 4rem;
+				top: 1.2rem;
+				width: 8.125rem;
+			}
+			.container{
+				top:50px;
+				position:relative;
+				border:1px solid black;
+			/*	left:50px !important;*/
+				margin:0px 0px 10px 10px;
+			}
+			
+			.leftpad{
+				margin-left:20px;
+			}
+			input{
+				border: 1px solid lightgrey !important;
+				padding-left: 10px !important;
+			}
+			
+			.pink{
+				background-color:#e1005d !important;
+			}
+			.picker__frame{
+				margin-top:-10px !important;
+			}
+			.picker__table{
+				margin-top:-10px !important;
+				margin-bottom: -10px !important;
+			}
+			#cover{
+			    position:fixed;
+			    top:0;
+			    left:0;
+			    background:rgba(0,0,0,0.6);
+			    z-index:5;
+			    width:100%;
+			    height:100%;
+			    display:none;
+			}
+			
+			#modal1{
+			  transition: all .3s ease;
+			  -webkit-transition: all .3s ease;
+			  animation: scale-display .3s;
+                          display: none;
+			}
+			
+			@keyframes scale-display {
+				0% {
+					opacity: 0;
+					transform: scale(0);
+			    -webkit-transform: scale(0);
+				}
+				100% {
+					opacity: 1;
+					transform: scale(1);
+			    -webkit-transform: scale(1);
+				}
+			}
+			@keyframes scale-display--reversed {
+				0% {
+					display: inline-flex;
+					opacity: 1;
+					transform: scale(1);
+					-webkit-transform: scale(1);
+				}
+				99% {
+					display: inline-flex;
+					opacity: 0;
+					transform: scale(0);
+					-webkit-transform: scale(0);
+				}
+				100% {
+					display: none;
+					opacity: 0;
+					transform: scale(0);
+					-webkit-transform: scale(0);
+				}
+			}
+			@media (max-width:990px){
+				textarea {
+				    width: 105% !important;
+				    height: 8rem !important;
+				}
+			}
+			@media (min-width:991px){
+				textarea {
+				    width: 102% !important;
+				    height: 8rem !important;
+				}
+			}
+			
+		</style>
+		<script>
+			var app = angular.module('web-app', []);
+			app.controller('InfoController', function($scope,$window,$location) {
+				
+				//clientID:622320244089-k2r7rkiaadpm5sufp415jcofa8m2ss20.apps.googleusercontent.com
+				//client secret:rosjtfDR5X5ZQV72PUajO6d3
+				//API key:AIzaSyA8m2aF8gfWqyw7D9_4oioznw4sTnyyiDE
+				
+				$scope.campaign={};
+				$scope.operator=[];
+				$scope.campaignName="";
+				
+				$scope.clientSelected = function(client){
+					console.log(client);
+					$scope.campaign.product="";
+					$scope.name="";
+					
+				}
+				
+				$scope.productSelected = function(){
+					$scope.campaign.region="";
+					$scope.date="";
+					$scope.name="";
+					$scope.info="";
+					$scope.campaignName="";
+				}
+		
+			});
+			
+		</script>
+		<header>	
+			<main>
+				<nav>
+					<div class="nav-wrapper z-depth-0 white" ng-controller="InfoController">
+						<ul class="left">      	 
+							<img src="https://clients-ps.s3.amazonaws.com/visual_resources/client_groupm/M%20Report%20Yellow.png" class="logo" >
+						</ul>
+						<!--<ul class="hide-on-med-and-down right">
+							<li><a href="" ng-click="change()">Change experience</a></li> 						
+							<li><a href="" ng-click="signout()">Signout</a></li> -->
+						</ul>
+					</div>
+				</nav>
+			</main>	
+		</header>
+		<div class="row col s12 m12 l12" ng-controller="InfoController">
+			<!--Add buttons to initiate auth sequence and sign out
+			 <button id="authorize-button" style="display: none;">Authorize</button>
+			 <button id="signout-button" style="display: none;">Sign Out</button>-->
+			<div class="row col s10 m8 l8 offset-s1 offset-m2 offset-l2 z-depth-1 container">
+				<h4 align="center">Manual Commentary</h4>
+				<div class="row"></div>
+				<div class="col l12 m12 s12">
+					<div class="col s12 m4 l3">
+						<p>User Name</p>
+					</div>
+					<div class="col s12 m7 l9">
+					<input id ="email" ng-model="email" type="text" placeholder="Enter your name" required>			    
+					</div>
+				</div>	
+				<div class="col l12 m12 s12">
+					<div class="col s12 m4 l3">
+						<p>Source</p>
+					</div>
+					<div class="col s12 m7 l9">
+					<!--	<select id ="client" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
+							<option ng-repeat="client in clientList">{{client}}</option>
+						</select>-->
+						<input list="source" id="sourceName" name="browser" ng-model="campaign.scource" onchange="sourceSelected(this.value)" ng-change="sourceSelected(campaign.source)" placeholder="Select Source">
+						<datalist id="source">
+						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
+						</datalist>						
+					</div>
+				</div>	
+				
+				<div class="col l12 m12 s12">
+					<div class="col s12 m4 l3">
+						<p>Advertiser</p>
+					</div>
+					<div class="col s12 m7 l9">
+					<!--	<select id ="client1" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
+							<option ng-repeat="client in clientList">{{client}}</option>
+						</select>-->
+						<input list="advertiser" id="advertiserName" name="browser" ng-model="campaign.advertiser" onchange="advertiserSelected(this.value)" ng-change="advertiserSelected(campaign.advertiser)" placeholder="Select Advertiser">
+						<datalist id="advertiser">
+						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
+						</datalist>						
+					</div>
+				</div>	
+				
+				<div class="col l12 m12 s12">
+					<div class="col s12 m4 l3">
+						<p>Campaign</p>
+					</div>
+					<div class="col s12 m7 l9">
+					<!--	<select id ="client" ng-change="clientSelected(campaign.client)" ng-model="campaign.client" material-select watch required>
+							<option ng-repeat="client in clientList">{{client}}</option>
+						</select>-->
+						<input list="client" id="clientName" name="browser" ng-model="campaign.client" ng-change="clientSelected(campaign.client)" placeholder="Select Campaign">
+						<datalist id="client">
+						<!--	<option ng-repeat="client in clientList">{{client}}</option>-->
+						</datalist>						
+					</div>
+				</div>						
+				<div class="col l12 m12 s12">
+					<div class="col s12 m4 l3">
+						<p>Comments</p>
+					</div>
+					<div class="col s12 m7 l9">
+						<textarea name="name" id ="name" ng-model="name" placeholder="Enter Comment" rows="10" cols="30"></textarea>
+					</div>
+				</div>		
+				<div class="row col s4 m2 l4 offset-s2 offset-l4 offset-m4" style="padding-top:7px;margin-top: 20px;margin-bottom: 50px;">
+						<button class="btn waves-effect center waves-dark blue" type="submit" name="action" onclick="makeApiCall()" >Submit
+        					<i class="material-icons right">send</i></button>
+				</div>
+			</div>
+			
+			<!-- Modal Structure -->
+			  <div id="modal1" class="modal" style="z-index: 100;top:30%;overflow:hidden;">
+			    <div class="modal-content">
+			      <h5 align="center">Please Sign in to your Google account to enter the comments</h5>
+			    </div>
+			    <div class="modal-footer center">
+				<div class="row">
+			      		<button class="btn waves-effect center waves-light blue" id="authorize-button1" style="display: block; margin-left:  auto;  margin-right: auto; float:none;">Authorise</button>
+				<!--	<button class="btn waves-effect center waves-light blue" id="signout-button" style="display: none; margin-left:  auto;  margin-right: auto; float:none;">Signout</button>-->
+				</div>
+			    </div>
+			  </div>
+			<div id="cover">
+  		</div>
+		<!--script--->
+  		<script>
+// Client ID and API key from the Developer Console
+		      var CLIENT_ID = '622320244089-k2r7rkiaadpm5sufp415jcofa8m2ss20.apps.googleusercontent.com';
+		      var API_KEY = 'AIzaSyA8m2aF8gfWqyw7D9_4oioznw4sTnyyiDE';
+		      // Array of API discovery doc URLs for APIs used by the quickstart
+		      var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
+		      // Authorization scopes required by the API; multiple scopes can be
+		      // included, separated by spaces.
+		      var SCOPES = "https://www.googleapis.com/auth/spreadsheets";
+		      var authorizeButton = document.getElementById('authorize-button1');
+		      var signoutButton = document.getElementById('signout-button');
+		      /**
+		       *  On load, called to load the auth2 library and API client library.
+		       */
+		      function handleClientLoad() {
+			gapi.load('client:auth2', initClient);
+		      }
+		      /**
+		       *  Initializes the API client library and sets up sign-in state
+		       *  listeners.
+		       */
+		      function initClient() {
+			gapi.client.init({
+			  apiKey: API_KEY,
+			  clientId: CLIENT_ID,
+			  discoveryDocs: DISCOVERY_DOCS,
+			  scope: SCOPES
+			}).then(function () {
+			  // Listen for sign-in state changes.
+			  gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+			  // Handle the initial sign-in state.
+			  updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+				    
+			  authorizeButton.onclick = handleAuthClick;
+			//  signoutButton.onclick = handleSignoutClick;
+			});
+		      }
+		      /**
+		       *  Called when the signed in status changes, to update the UI
+		       *  appropriately. After a sign-in, the API is called.
+		       */
+		      function updateSigninStatus(isSignedIn) {
+			if (isSignedIn) {
+				//signoutButton.style.display = 'block';
+			  authorizeButton.style.display = 'none';
+			  document.getElementById("modal1").style.display='none';
+			  document.getElementById("cover").style.display='none';
+			  
+			  listClients();
+			  //makeApiCall();
+			} else {
+			  authorizeButton.style.display = 'block';  
+			  document.getElementById("modal1").style.display='block';
+			  document.getElementById("cover").style.display='block';
+			 // signoutButton.style.display = 'none';
+			}
+		      }
+		      /**
+		       *  Sign in the user upon button click.
+		       */
+		      function handleAuthClick(event) {
+			gapi.auth2.getAuthInstance().signIn();
+		      }
+		      /**
+		       *  Sign out the user upon button click.
+		       */
+		      function handleSignoutClick(event) {
+			gapi.auth2.getAuthInstance().signOut();
+		      }
+			
+			 /**
+		       * Append a pre element to the body containing the given message
+		       * as its text node. Used to display the results of the API call.
+		       *
+		       * @param {string} message Text to be placed in pre element.
+		       */
+		      function appendPre(message) {
+			var pre = document.getElementById('content');
+			var textContent = document.createTextNode(message + '\n');
+		//	pre.appendChild(textContent);
+		      }
+		      /**
+		       * Print the names and majors of students in a sample spreadsheet:
+		       * https://docs.google.com/spreadsheets/d/1ks-O7G5HCeTlpuWwdD7zO6ThNW77SxBfc8eNLRdcO9A/edit
+		       */
+			var clientList=[];
+			var productList=[];
+			var overList=[];
+			var regionList=[];
+			var dupClients=[];
+			var dupAdvert = [];
+			
+		        function listClients() {
+			gapi.client.sheets.spreadsheets.values.get({
+			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+			  spreadsheetId: '1YYawaOlF0WUocEmkehNozsrlgLibgSUTbj36l9GDVwM',
+			//  tq:'select%20*%20limit%2010', //filter
+			  range: "Sheet2!A2:A15000",
+			}).then(function(response) {
+			  var range = response.result;
+			  if (range.values.length > 0) {
+			   var options = '';   
+			  for(var i = 0; i < range.values.length; i++){
+			    dupClients.push(range.values[i][0]);
+			  }
+			var uniqueValues = dupClients.filter( onlyUnique );
+			for(var i = 0; i < uniqueValues.length; i++){
+			    clientList.push(uniqueValues[i]);
+			    options += '<option value="'+uniqueValues[i]+'" />';
+			  }
+			  document.getElementById('source').innerHTML = options;
+			  } else {
+			    //appendPre('No data found.');
+			  }
+			}, function(response) {
+			  appendPre('Error: ' + response.result.error.message);
+			});
+		      }
+			
+			function onlyUnique(value, index, self) { 
+			    return self.indexOf(value) === index;
+			}
+						
+			var clientRange=[];			
+			function sourceSelected(client){
+				console.log(client);
+			    if(isInArray(clientList, client)){
+			    gapi.client.sheets.spreadsheets.values.get({
+			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+			  spreadsheetId: '1YYawaOlF0WUocEmkehNozsrlgLibgSUTbj36l9GDVwM',
+			  range: "Sheet2!A2:D15000",
+			}).then(function(response) {
+			   productList=[];
+			   var range = response.result;
+			   if (range.values.length > 0) {
+				var optionsProd= '';
+			for(var i = 0; i < range.values.length; i++){
+			    if(range.values[i][0]==client){
+				dupAdvert.push(range.values[i][3]);
+			    }
+			  }
+			var uniqueValues = dupAdvert.filter( onlyUnique );
+			for(j=0;j<uniqueValues.length;j++){
+				   productList.push(uniqueValues[j]);
+			    	optionsProd += '<option value="'+uniqueValues[j]+'" />';
+			}
+			  }
+			document.getElementById('advertiser').innerHTML = optionsProd;
+			}, function(response) {
+			  appendPre('Error: ' + response.result.error.message);
+			});
+			    }	
+			}
+			
+			function isInArray(list, val) {
+				return list.includes(val); 
+			}
+			
+			var clientRange=[];			
+			function advertiserSelected(advert){
+				console.log(advertiser);
+			    if(isInArray(productList, advert)){
+			    gapi.client.sheets.spreadsheets.values.get({
+			  //  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+			  spreadsheetId: '1YYawaOlF0WUocEmkehNozsrlgLibgSUTbj36l9GDVwM',
+			  range: "Sheet2!A2:D15000",
+			}).then(function(response) {
+			   campaignList=[];
+			   var range = response.result;
+			   if (range.values.length > 0) {
+				var optionsProd= '';
+			  for(var i = 0; i < range.values.length; i++){
+			    if(range.values[i][3]==advert){
+				productList.push(range.values[i][2]);
+			    	optionsProd += '<option value="'+range.values[i][2]+'" />';
+			    }
+			  }
+			  }
+			document.getElementById('client').innerHTML = optionsProd;
+			}, function(response) {
+			  appendPre('Error: ' + response.result.error.message);
+			});
+			    }	
+			}
+			
+			function makeApiCall() {
+			      var dt = new Date();
+			      var timestamp=dt.toString().split("GMT")[0];
+			      var operator_name = document.getElementById('email').value;
+			      var source_name = document.getElementById('sourceName').value;
+    				var advertiser_name = document.getElementById('advertiserName').value;
+			      var campaign_name = document.getElementById('clientName').value;
+			      var comment = document.getElementById('name').value;
+	
+			      var params = {
+				// The ID of the spreadsheet to update.
+				spreadsheetId: '1YYawaOlF0WUocEmkehNozsrlgLibgSUTbj36l9GDVwM',  // TODO: Update placeholder value.
+				// The A1 notation of the values to update.
+				range: 'Sheet1!A2:F15000',  // TODO: Update placeholder value.
+				// How the input data should be interpreted.
+				valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
+			      };
+			      var valueRangeBody = {
+				// TODO: Add desired properties to the request body. All existing properties
+				// will be replaced.
+			      };
+				var resource = {
+				  "majorDimension": "ROWS",
+				  "values": [
+					    [timestamp,operator_name, source_name, advertiser_name,campaign_name,comment]
+					  ],
+				}
+			     if(operator_name!="" && source_name!="" && campaign_name!="" && comment!=""){
+			      var request = gapi.client.sheets.spreadsheets.values.append(params, resource);
+      				request.then(function(response) {
+				// TODO: Change code below to process the `response` object:
+					//Copy..
+					var $toastContent = $('<span>Information saved</span>');
+					Materialize.toast($toastContent, 5000, 'rounded');
+				  document.location.reload(true)
+				console.log(response.result);
+			      }, function(reason) {
+				console.error('error: ' + reason.result.error.message);
+				if(reason.result.error.message=="The caller does not have permission"){
+				   var $toastContent = $('<span>The caller does not have permission</span>');
+				   Materialize.toast($toastContent, 5000, 'rounded');
+				}
+			      });
+			     }
+				else{
+				   var $toastContent = $('<span>Please fill all fields</span>');
+				   Materialize.toast($toastContent, 5000, 'rounded');
+				}
+			    }
+			
+			function saveNew(num,val){
+				var params = {
+					// The ID of the spreadsheet to update.
+					spreadsheetId: '1YYawaOlF0WUocEmkehNozsrlgLibgSUTbj36l9GDVwM',  // TODO: Update placeholder value.
+					range:'Sheet1!A1:H15000',  // TODO: Update placeholder value.
+					// How the input data should be interpreted.
+					valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
+				};
+			      var valueRangeBody = {
+				// TODO: Add desired properties to the request body. All existing properties
+				// will be replaced.
+			      };
+			  switch (num){
+				
+					  
+			     }
+					 
+			      var request = gapi.client.sheets.spreadsheets.values.append(params, resource);
+      				request.then(function(response) {
+				// TODO: Change code below to process the `response` object:
+				console.log(response.result);
+			      }, function(reason) {
+				console.error('error: ' + reason.result.error.message);
+			      });
+			}
+			
+		    </script>
+		    <script async defer src="https://apis.google.com/js/api.js"
+		      onload="this.onload=function(){};handleClientLoad()"
+		      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+		    </script>
+	</body>
+</html>
